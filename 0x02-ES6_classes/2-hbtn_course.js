@@ -1,29 +1,17 @@
 export default class ALXCourse {
   constructor(name, length, students) {
-    this._name = this._validateName(name);
-    this._length = this._validateLength(length);
-    this._students = this._validateStudents(students);
-  }
-
-  _validateName(name) {
     if (typeof name !== 'string') {
       throw new TypeError('Name must be a string');
     }
-    return name;
-  }
-
-  _validateLength(length) {
     if (typeof length !== 'number') {
       throw new TypeError('Length must be a number');
     }
-    return length;
-  }
-
-  _validateStudents(students) {
     if (!Array.isArray(students) || !students.every((student) => typeof student === 'string')) {
       throw new TypeError('Students must be an array of strings');
     }
-    return students;
+    this._name = name;
+    this._length = length;
+    this._students = students;
   }
 
   get name() {
@@ -31,7 +19,10 @@ export default class ALXCourse {
   }
 
   set name(name) {
-    this._name = this._validateName(name);
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a string');
+    }
+    this._name = name;
   }
 
   get length() {
@@ -39,7 +30,10 @@ export default class ALXCourse {
   }
 
   set length(length) {
-    this._length = this._validateLength(length);
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    }
+    this._length = length;
   }
 
   get students() {
@@ -47,6 +41,9 @@ export default class ALXCourse {
   }
 
   set students(students) {
-    this._students = this._validateStudents(students);
+    if (!Array.isArray(students) || !students.every((student) => typeof student === 'string')) {
+      throw new TypeError('Students must be an array of strings');
+    }
+    this._students = students;
   }
 }
