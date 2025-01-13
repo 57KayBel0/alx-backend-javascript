@@ -1,11 +1,14 @@
 const http = require('http');
 
+// create http server
 const app = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('Hello ALX!');
 });
 
-app.listen(1245);
+// listen http server
+app.listen(1245, () => {
+  console.log('Hello ALX!');
+});
 
 module.exports = app;
