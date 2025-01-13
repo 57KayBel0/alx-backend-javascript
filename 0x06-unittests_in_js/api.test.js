@@ -1,5 +1,7 @@
 const request = require('request');
 const assert = require('assert');
+const getPaymentTokenFromAPI = require('./lib/6-payment_token');
+const utils = require('./lib/utils');
 
 describe('Index page', function() {
   it('Tests output of GET / request', function(done) {
